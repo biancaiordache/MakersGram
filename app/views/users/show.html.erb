@@ -1,0 +1,39 @@
+<main class="ui teal raised very padded text container segment">
+    <section class="ui basic segment">
+        <div class="ui basic clearing segment">
+            <h1 class="ui left floated header">
+                <%=@user.email%>
+            </h1>
+            <img class="ui small circular right floated image" src="<%=@user.image %>" alt="<%=@user.email%>">
+            <% if current_user.friends_with?(@user) %>
+                <h4 class="ui green right floated header">Friends</h4>
+                <% end %>
+        </div>
+        <div class="ui basic segment">
+            <h4 class="ui small header">
+                <%=@user.email%>
+            </h4>
+        </div>
+    </section>
+
+    <% if current_user.id == @user.id %>
+        <div class="ui basic segment">
+            <a class="ui tiny basic positive button" href="/users/<%=@user.id%>/edit">Edit Profile</a>
+            <a class="ui tiny negative basic right floated button" data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/users/<%=@user.id%>">Delete Profile</a>
+        </div>
+        <% end %>
+            <% if current_user.friends_with?(@user) %>
+                <div class="ui basic segment">
+                    <%= form_tag ({controller: 'friends', action: 'remove', method: 'post', id: @user.id}) do %>
+                        <input class="ui basic tiny negative button" type=submit value='Unfriend'>
+                        <% end %>
+                </div>
+                <% end %>
+                    <% if current_user.not_friends.include?(@user) %>
+                        <div class="ui basic segment">
+                            <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: @user.id}) do %>
+                                <input class="ui basic positive button" type=submit value='Send Friend Request'>
+                                <% end %>
+                        </div>
+                        <% end %>
+</main>
