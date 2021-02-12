@@ -6,10 +6,11 @@
                 <% @requests.each do |friend| %>
                     <%= friend.name%>
                     <%= form_tag ({controller: 'friends', action: 'add', method: 'post', id: friend.id}) do %>
-                        <input class="ui basic tiny left floated positive button" type=submit value='Accept'>
+                        <input class="c-button-green" type=submit value='Accept'>
                     <% end %>
+                    <br>
                     <%= form_tag ({controller: 'friends', action: 'reject', method: 'post', id: friend.id}) do %>
-                        <input class="ui basic tiny right floated negative button" type=submit value='Politely Refuse'>
+                        <input class="c-button-cancel" type=submit value='Politely Refuse'>
                     <% end %>
                 <% end %>
             <% end %>
@@ -43,7 +44,8 @@
                 <div class="ui input">
                     <input type="text" name="search" id="search">
                 </div>
-                <input class="ui mini basic button" type="submit" name="commit" value="Search" data-disable-with="Search">
+                <br>
+                <input class="c-button" type="submit" name="commit" value="Search" data-disable-with="Search">
             <% end %>
         </div>
 
@@ -53,7 +55,7 @@
                 <%= link_to user.name, user_path(user) %>
                 <div class="ui basic segment">
                     <%= form_tag ({controller: 'friends', action: 'create', method: 'post', id: user.id}) do %>
-                        <input class="ui basic button" type=submit value='Add Friend'>
+                        <input class="c-button" type=submit value='Add Friend'>
                     <% end %>
                 </div>
             <% end %>
