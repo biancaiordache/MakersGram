@@ -349,3 +349,9 @@
 .i-block {
   display: inline-block !important;
 }
+
+.user-avatar-container {
+  border-radius: 1000px;
+  border: #463f57;
+  border-style: solid;
+}

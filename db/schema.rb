@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 2021_02_11_142201) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "bios", force: :cascade do |t|
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
   create_table "friendships", id: :serial, force: :cascade do |t|
     t.string "friendable_type"
     t.integer "friendable_id"
