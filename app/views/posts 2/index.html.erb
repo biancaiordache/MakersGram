@@ -1,0 +1,14 @@
+<br>
+
+<%= link_to "#{current_user.name}'s profile", current_user, class: 'c-button ltb', style: 'padding: 10px 6px 10px 6px;' %>
+<br><br>
+<%= link_to "New Post", new_post_path, class: 'c-button ltb', style: 'padding: 10px 6px 10px 6px;' %>
+<br><br>
+<%= link_to "Friends", friends_path, class: 'c-button ltb', style: 'padding: 10px 6px 10px 6px;' %>
+<br>
+<br>
+<h1 class="profile-text-purple" >Posts</h1>
+
+<div class="row">
+  <%= render @posts %>
+</div>
