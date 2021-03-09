@@ -1,11 +1,12 @@
 <br>
-<div class="user-avatar-container">
-  <%= image_tag @user.avatar %>
+
+ <div class="user-avatar-container">
+    <%# image_tag @user.avatar %>
 </div>
 <br>
 <h1 class="profile-text-purple"><%= @user.name %></h1>
-<%= link_to "Back to homepage", root_path(), class: "profile-text-green" %> | 
-<%= link_to 'Edit bio', users_path, class: "profile-text-green" %> 
+<%= link_to "Back to homepage", root_path(), class: "profile-text-green" %> |
+<%= link_to 'Edit bio', users_path, class: "profile-text-green" %>
 <br>
 <br>
 
@@ -17,4 +18,3 @@
 <div class="row">
   <%= render @user_posts %>
 </div>
-
